@@ -1,0 +1,10 @@
+{
+  "appId": "com.fatecmc.kioferta",
+  "appName": "kioferta",
+  "webDir": "dist",
+  "plugins": {
+    "SplashScreen": {
+      "launchAutoHide": false
+    }
+  }
+}
