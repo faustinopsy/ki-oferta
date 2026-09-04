@@ -3,15 +3,16 @@ import { navbar } from './navbar/navbar.js'
 
 const app = document.getElementById("app")
 navbar(mapaderotas)
-// #home
-let hash = location.hash || "#home"
-// console.log(mapaderotas)
-// console.log(mapaderotas[0])
-// console.log(mapaderotas[0].label)
-const roteador = {}
 
-
+function renderizarPagina() {
+    const hash = window.location.hash || '#home'
+    const rota  = mapaderotas.find(tela => tela.url === hash)
+    console.log(rota)
+    if (rota) {
+        rota.pagina(app)
+    }
+}
 window.addEventListener("hashchange", ()=>{
-    mapaderotas[1].pagina(app)
+    renderizarPagina()
 })
-
+renderizarPagina()

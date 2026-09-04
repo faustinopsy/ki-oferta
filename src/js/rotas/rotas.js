@@ -1,9 +1,9 @@
 import home from '../paginas/home.js'
-import sobre from '../paginas/sobre.js'
+import enviar from '../paginas/enviar.js'
 
 const mapaderotas = [
     home,
-    sobre
+    enviar
 ]
 
 export { mapaderotas }
