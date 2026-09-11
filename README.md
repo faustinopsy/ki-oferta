@@ -1,3 +1,18 @@
+Respostas de A1 até A6
+
+A1:
+
+A2:
+
+A3:
+
+A4:
+
+A5:
+
+A6:
+
+
 # Ki-Oferta
 
 > **Projeto em construção.** Este repositório está em desenvolvimento ativo como projeto de estudos (FATEC) e ainda não representa uma versão final.

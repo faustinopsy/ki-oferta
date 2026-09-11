@@ -27,11 +27,63 @@
     <link rel="icon" type="image/x-icon" href="./assets/icon/favicon.ico" />
     <link rel="manifest" href="./manifest.json" />
     <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/home.css" />
     <meta name="theme-color" content="#31d53d" />
   </head>
   <body>
     <header id="navbar" class="navbar-bottom"></header>
-    <main id="app"></main>
+    <main id="app">
+      <header class="topo">
+        <a class="logo" href="#">KiOferta</a>
+        <a class="entrar" href="#">Entrar</a>
+      </header>
+
+      <section class="apresentacao">
+        <p class="rotulo">RADAR DE PROMOÇÕES</p>
+
+        <h1>Encontre ofertas perto de você</h1>
+
+        <p class="descricao">
+          Compare preços e veja se vale a pena ir até o mercado.
+        </p>
+
+        <form class="form-busca">
+          <label for="busca-produto">Qual produto você procura?</label>
+
+          <input
+            id="busca-produto"
+            class="campo-busca"
+            type="search"
+            placeholder="Exemplo: arroz, café ou leite"
+          >
+
+          <button class="botao-busca" type="submit">
+            Buscar
+          </button>
+        </form>
+      </section>
+
+      <section class="categorias" aria-labelledby="titulo-categorias">
+        <h2 id="titulo-categorias">Navegue por categoria</h2>
+
+        <div class="lista-categorias">
+          <a class="categoria" href="#">Arroz e feijão</a>
+          <a class="categoria" href="#">Café</a>
+          <a class="categoria" href="#">Laticínios</a>
+          <a class="categoria" href="#">Bebidas</a>
+          <a class="categoria" href="#">Higiene</a>
+          <a class="categoria" href="#">Limpeza</a>
+        </div>
+      </section>
+
+      <section class="aviso">
+        <h2>Compare antes de sair</h2>
+
+        <p>
+          Uma oferta melhor depende de preço, distância e economia.
+        </p>
+      </section>
+    </main>
     <script src="./js/main.js" type="module"></script>
   </body>
 </html>

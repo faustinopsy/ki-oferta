@@ -3,10 +3,11 @@
     align-items: center;
     justify-content: center;
     list-style-type: none;
-    gap: 12%;
+    gap: 0;
     position: fixed;
     bottom: 0;
-    width:440px;
+    width: 100%; 
+    max-width: 420px;
     height: 60px;
     border-top: 1px solid #da9797;
 }
@@ -20,6 +21,7 @@
     gap:15px;
 }
 .navbar-item{
+    flex: 1;
     text-decoration: none;
     color: #5a5959;
 }

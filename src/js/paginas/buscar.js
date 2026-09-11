@@ -62,7 +62,7 @@ function adicionarEvento(app){
 
 export default {
     url: "#buscar",
-    label: "buscar",
+    label: "Buscar",
     icon: "search",
     pagina: buscar
 }
