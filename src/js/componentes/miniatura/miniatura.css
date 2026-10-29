@@ -1,0 +1,25 @@
+.miniatura {
+  width: 56px;
+  height: 56px;
+  flex-shrink: 0;
+  border-radius: 8px;
+  object-fit: cover;
+  background: var(--superficie-2);
+}
+
+.miniatura--pequena {
+  width: 40px;
+  height: 40px;
+}
+
+.miniatura--vazia {
+  display: grid;
+  place-items: center;
+  color: var(--tinta-2);
+  border: 1px solid var(--borda);
+  background: repeating-linear-gradient(
+    135deg,
+    var(--superficie-2) 0 6px,
+    var(--superficie-1) 6px 12px
+  );
+}

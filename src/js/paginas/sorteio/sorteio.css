@@ -1,0 +1,159 @@
+.sorteio {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 16px 16px 60px 16px;
+}
+
+.sorteio__topo h1 {
+  font-size: 1.4rem;
+}
+
+.sorteio__apoio {
+  color: var(--tinta-2, #5a6270);
+  font-size: 0.85rem;
+}
+
+.sorteio__alerta {
+  color: var(--cor-destaque, #c41e20);
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.sorteio__aviso {
+  color: var(--cor-destaque, #c41e20);
+  font-size: 0.85rem;
+  min-height: 1rem;
+}
+
+.sorteio__form {
+  display: flex;
+  gap: 8px;
+}
+
+.sorteio__form input {
+  flex: 1;
+  height: 40px;
+  padding: 0 12px;
+  border: 1px solid #c9d1db;
+  border-radius: 8px;
+}
+
+.sorteio__botao {
+  flex: 0 0 auto;
+  height: 40px;
+  padding: 0 16px;
+  border: none;
+  border-radius: 8px;
+  background-color: var(--cor-primaria, #1e4b8e);
+  color: #ffffff;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.sorteio__botao[disabled] {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.sorteio__botao--vazado {
+  background-color: transparent;
+  color: var(--cor-primaria, #1e4b8e);
+  border: 1px solid var(--cor-primaria, #1e4b8e);
+}
+
+.sorteio__lista {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  list-style: none;
+}
+
+.sorteio__item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 12px;
+  border: 1px solid #c9d1db;
+  border-radius: 8px;
+}
+
+.sorteio__item span {
+  flex: 1;
+}
+
+.sorteio__remover {
+  flex: 0 0 auto;
+  border: none;
+  background: none;
+  color: var(--tinta-2, #5a6270);
+  font-size: 0.8rem;
+  cursor: pointer;
+}
+
+.sorteio__vazio {
+  color: var(--tinta-2, #5a6270);
+  font-size: 0.9rem;
+}
+
+.sorteio__semente {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.sorteio__semente label {
+  flex: 0 0 auto;
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.sorteio__semente input {
+  flex: 1;
+  height: 40px;
+  padding: 0 12px;
+  border: 1px solid #c9d1db;
+  border-radius: 8px;
+}
+
+.sorteio__acoes {
+  display: flex;
+  gap: 8px;
+}
+
+.sorteio__acoes .sorteio__botao {
+  flex: 1;
+}
+
+.sorteio__titulo {
+  font-size: 1.1rem;
+}
+
+.sorteio__resultado {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  list-style: none;
+}
+
+.sorteio__linha {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px;
+  border: 1px solid #c9d1db;
+  border-radius: 8px;
+}
+
+.sorteio__grupo {
+  flex: 1;
+  font-weight: 700;
+}
+
+.sorteio__tema {
+  flex: 0 0 auto;
+  color: var(--cor-primaria, #1e4b8e);
+  text-align: right;
+}

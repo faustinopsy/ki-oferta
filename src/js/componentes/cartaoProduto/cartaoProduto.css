@@ -1,0 +1,31 @@
+.cartao-produto {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--interno);
+  color: inherit;
+  text-decoration: none;
+}
+
+.cartao-produto:hover {
+  border-color: var(--cor-primaria);
+}
+
+.cartao-produto__info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.cartao-produto__nome {
+  font-size: var(--txt-md);
+  font-weight: 700;
+}
+
+/* preço em coluna: os valores ficam alinhados de cima a baixo */
+.cartao-produto__valores {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  text-align: right;
+}

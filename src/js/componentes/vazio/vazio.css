@@ -1,0 +1,25 @@
+.vazio {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--entre);
+  padding: var(--secao) var(--margem);
+  text-align: center;
+}
+
+.vazio__icone {
+  width: 32px;
+  height: 32px;
+  color: var(--tinta-2);
+}
+
+.vazio__titulo {
+  font-size: var(--txt-lg);
+  font-weight: 700;
+}
+
+.vazio__texto {
+  max-width: 32ch;
+  color: var(--tinta-2);
+  margin-bottom: var(--entre);
+}

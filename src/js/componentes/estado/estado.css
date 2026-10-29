@@ -1,0 +1,13 @@
+.estado {
+  min-height: 1.25rem;   /* não pula */
+  font-size: var(--txt-sm);
+}
+.estado:empty { min-height: 0; }
+
+.estado--carregando { color: var(--tinta-2); }
+.estado--sucesso    { color: var(--selo-aprovada-tinta); }
+.estado--vazio      { color: var(--tinta-2); }
+.estado--erro       { color: var(--cor-destaque); }
+
+.estado--sucesso,
+.estado--erro       { font-weight: 600; }

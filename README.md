@@ -1,70 +1,83 @@
-# Ki-Oferta
+# KiOferta
 
-> **Projeto em construção.** Este repositório está em desenvolvimento ativo como projeto de estudos (FATEC) e ainda não representa uma versão final.
+Banco coletivo de preços de supermercado. Projeto modelo da disciplina de
+Programação para Dispositivos Móveis (FATEC): SPA em JavaScript puro,
+empacotada como app com o Capacitor.
 
-## Sobre o projeto
+O desenho das telas está em [ki-oferta.pdf](ki-oferta.pdf) (estudo de caso de interface).
+O padrão de código que todo app da disciplina segue está em [PADRAO.md](PADRAO.md).
 
-O Ki-Oferta é um modelo de aplicação criado com duas frentes de aprendizado em mente:
+## Como rodar
 
-1. **Desenvolvimento web moderno** — uso de ferramentas atuais de build e um fluxo de trabalho baseado em módulos JavaScript (ES Modules), organização de código em componentes/páginas e boas práticas de estruturação de projeto front-end.
-2. **Conceitos de desenvolvimento de aplicativos** — o mesmo código-fonte web é empacotado como um aplicativo mobile nativo (Android/iOS) usando o [Capacitor](https://capacitorjs.com/), permitindo estudar como uma aplicação web se transforma em um app instalável, com acesso a APIs nativas do dispositivo (câmera, splash screen, etc.).
+```bash
+npm install
+npm run dev        # desenvolvimento, com recarga automática
+npm run build      # gera dist/, usada pelo Capacitor
+npm run preview    # testa o build em http://localhost:4173
+```
 
-A ideia é usar um único projeto para explorar, ao mesmo tempo, o "mundo web" e o "mundo mobile", entendendo onde as duas abordagens se encontram e onde elas divergem.
+## As onze telas
 
-## Padrão utilizado
+| Tela | Endereço | Menu | Quem usa |
+|---|---|---|---|
+| 1 Início | `#buscar` | Buscar | todos |
+| 2 Resultado da busca | `#produtos?busca=café&categoria=Mercearia&ordem=distancia` | | todos |
+| 3 Detalhe do produto | `#produto?id=1` | | todos |
+| 4 Mapa | `#mapa` ou `#mapa?produto=1` | Mapa | todos |
+| 5 Mercado | `#mercado?id=1` | | todos |
+| 6 Favoritos | `#favorito` | Favoritos | todos (salvos no aparelho) |
+| 7 Cadastro e login | `#login?aba=entrar&volta=enviar` | | contribuinte |
+| 8 Conta pendente | `#pendente` | | contribuinte |
+| 9 Enviar promoção | `#enviar` | Enviar | contribuinte aprovado |
+| 10 Minhas contribuições | `#conta` | Conta | contribuinte aprovado |
+| 11 Painel de contas | `#moderacao` | | moderador |
+| Tela não encontrada | qualquer outro | | |
+| Sorteio dos temas | `#sorteio` | | professor |
 
-O projeto segue uma estrutura simples de **SPA (Single Page Application) em JavaScript puro (vanilla JS)**, sem frameworks como React, Vue ou Angular. Os principais pontos do padrão são:
+## Contas de teste
 
-- **Roteamento por hash**: a navegação entre telas é controlada pelo hash da URL (`#buscar`, `#mapa`, `#enviar`, etc.), interceptado pelo evento `hashchange` em [src/js/main.js](src/js/main.js).
-- **Páginas como módulos**: cada tela vive em seu próprio arquivo dentro de [src/js/paginas/](src/js/paginas/) e exporta um objeto com sua `url` e uma função `pagina()` responsável por renderizar o conteúdo dentro do elemento `#app`.
-- **Mapa de rotas central**: [src/js/rotas/rotas.js](src/js/rotas/rotas.js) reúne todas as páginas disponíveis em uma lista única, usada tanto pelo roteador quanto pela navbar.
-- **Navbar dinâmica**: o componente em [src/js/navbar/navbar.js](src/js/navbar/navbar.js) é montado a partir do mesmo mapa de rotas, evitando duplicação entre navegação e páginas.
-- **Build com Vite**: o [Vite](https://vitejs.dev/) cuida do bundling e do servidor de desenvolvimento, gerando a pasta `dist/` que o Capacitor usa como `webDir` para empacotar o app nativo.
+| E-mail | Senha | Situação |
+|---|---|---|
+| marina@kioferta.com | marina123 | contribuinte, 128 de reputação (vai para votação) |
+| rafael@kioferta.com | rafael123 | contribuinte, 212 de reputação (publica direto) |
+| caio@kioferta.com | caio1234 | moderador |
+| juliana@email.com | juliana123 | pendente (aprove no painel com o Caio) |
 
-## Como rodar o projeto
+A sessão e os dados ficam na memória: recarregou o app, tudo volta ao início.
+Só os favoritos ficam salvos no aparelho.
 
-### Pré-requisitos
+## Serviços externos (aula 9)
 
-- [Node.js](https://nodejs.org/) instalado (recomendado LTS mais recente)
-- npm (instalado junto com o Node.js)
+| Onde | Serviço | O que faz |
+|---|---|---|
+| Tela 9, código de barras | Open Food Facts | identifica produto que não está no catálogo |
+| Tela 7, campo cidade | ViaCEP | digitou um CEP, a cidade é preenchida |
 
-### Passo a passo
+## O backend
 
-1. Clone o repositório e acesse a pasta do projeto:
+A KiOferta API (repositório `kioferta-python`, FastAPI, sem banco de dados) já
+tem uma rota para cada tela. Quando o app passar a usá-la, só
+`servicos/catalogo.js` e `servicos/contas.js` mudam: eles passam a pedir ao
+`http.js`. As telas, o roteador e a navbar continuam iguais.
 
-   ```bash
-   git clone https://github.com/faustinopsy/ki-oferta
-   cd ki-oferta
-   ```
+## Lacunas do estudo de caso
 
-2. Instale as dependências:
+O que o enunciado não define continua sem regra inventada:
 
-   ```bash
-   npm install
-   ```
+- **Contestação**: o botão existe e avisa que a regra ainda não foi definida.
+- **Filtro por distância**: a busca ordena por distância, mas não limita por raio.
+- **Mapa real e GPS**: o mapa é ilustrativo e a distância vem dos dados de exemplo.
+- **Leitor de código pela câmera**: o atalho leva ao campo onde o código é digitado.
 
-3. Rode o projeto em modo de desenvolvimento (abre no navegador, com hot reload):
+## Testes das telas
 
-   ```bash
-   npm run dev
-   ```
+`testes/telas.mjs` percorre os fluxos das onze telas no navegador, com os
+serviços externos simulados, e guarda uma foto de cada tela.
 
-4. Para gerar a versão de produção (usada também pelo Capacitor):
-
-   ```bash
-   npm run build
-   ```
-
-5. Para pré-visualizar o build de produção localmente:
-
-   ```bash
-   npm run preview
-   ```
-
-### Rodando como app nativo (Capacitor)
-
-Este projeto usa o [`@capacitor/create-app`](https://github.com/ionic-team/create-capacitor-app) como base. Para sincronizar o build web com os projetos nativos (Android/iOS), consulte a [documentação do Capacitor](https://capacitorjs.com/docs) — em resumo, após o `npm run build`, é necessário adicionar a plataforma desejada e sincronizar os arquivos web com o projeto nativo antes de rodar em um emulador ou dispositivo.
-
-## Status
-
-Este é um projeto didático em construção. Funcionalidades, estrutura de pastas e padrões podem mudar conforme o aprendizado avança.
+```bash
+npm install -D playwright
+npx playwright install chromium
+npm run build
+npm run preview          # deixe rodando em um terminal
+node testes/telas.mjs    # em outro terminal
+```

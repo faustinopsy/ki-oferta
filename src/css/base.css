@@ -1,4 +1,51 @@
-*{
+/* ==========================================================
+   base.css: tokens e peças usadas por todas as telas.
+   O CSS de cada tela e de cada componente fica ao lado do JS.
+   ========================================================== */
+
+:root {
+  /* Cores: duas cromáticas, três tintas, três superfícies */
+  --cor-primaria: oklch(0.422 0.14 262);      /* navegação e links · 8,6:1 */
+  --cor-primaria-fundo: oklch(0.95 0.025 262);
+  --cor-destaque: oklch(0.527 0.19 27);       /* preço e ação principal · 5,9:1 */
+  --cor-destaque-escura: oklch(0.47 0.18 27);
+  --cor-destaque-fundo: oklch(0.95 0.03 27);
+  --tinta-1: oklch(0.241 0.02 265);           /* texto principal · 16,4:1 */
+  --tinta-2: oklch(0.451 0.025 265);          /* texto secundário · 7,4:1 */
+  --superficie-1: #fff;                       /* cartões */
+  --superficie-2: oklch(0.97 0.004 265);      /* fundo */
+  --borda: oklch(0.91 0.006 265);
+
+  /* Selos: tinta + fundo lavado, nunca um bloco saturado */
+  --selo-votacao-tinta: oklch(0.47 0.10 70);
+  --selo-votacao-fundo: oklch(0.95 0.06 85);
+  --selo-aprovada-tinta: oklch(0.45 0.11 150);
+  --selo-aprovada-fundo: oklch(0.95 0.05 150);
+  --selo-rejeitada-tinta: oklch(0.45 0.02 265);
+  --selo-rejeitada-fundo: oklch(0.94 0.004 265);
+  --selo-expirada-tinta: oklch(0.50 0.015 265);
+  --selo-expirada-fundo: oklch(0.96 0.003 265);
+
+  /* Tipografia: uma família, sete degraus */
+  --fonte: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  --txt-preco: 2.125rem;  /* 34 */
+  --txt-2xl: 1.5rem;      /* 24 */
+  --txt-xl: 1.1875rem;    /* 19 */
+  --txt-lg: 1rem;         /* 16 */
+  --txt-md: 0.875rem;     /* 14 */
+  --txt-sm: 0.8125rem;    /* 13 */
+  --txt-xs: 0.75rem;      /* 12 */
+
+  /* Espaço: grade de 4 pixels */
+  --margem: 16px;         /* margem da tela */
+  --interno: 12px;        /* dentro do cartão */
+  --entre: 8px;           /* entre cartões de uma lista */
+  --secao: 24px;          /* entre seções */
+  --raio: 10px;
+  --altura-menu: 64px;
+}
+
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -6,10 +53,187 @@
 
 html,
 body {
-  padding: 0;
-  margin: 0;
   max-width: 440px;
   margin: 0 auto;
-  height: 100dvh;
-  
+  min-height: 100dvh;
+  background: var(--superficie-2);
+  color: var(--tinta-1);
+  font-family: var(--fonte);
+  font-size: var(--txt-md);
+  line-height: 1.4;
+}
+
+#app {
+  min-height: 100dvh;
+  padding-bottom: calc(var(--altura-menu) + var(--secao));
+}
+
+a {
+  color: var(--cor-primaria);
+}
+
+button,
+input,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+svg.lucide {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+:focus-visible {
+  outline: 3px solid var(--cor-primaria);
+  outline-offset: 2px;
+}
+
+.oculto {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* ---------- Tela: o miolo de cada página ---------- */
+.tela {
+  padding: var(--margem);
+  display: flex;
+  flex-direction: column;
+  gap: var(--secao);
+}
+
+.tela__titulo {
+  font-size: var(--txt-xl);
+  font-weight: 700;
+}
+
+.tela__secao {
+  display: flex;
+  flex-direction: column;
+  gap: var(--entre);
+}
+
+.tela__secao-topo {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.tela__subtitulo {
+  font-size: var(--txt-md);
+  font-weight: 700;
+}
+
+.apoio {
+  font-size: var(--txt-sm);
+  color: var(--tinta-2);
+}
+
+/* ---------- Preço: sempre vermelho, 700, tabular, sem quebra ---------- */
+.preco {
+  color: var(--cor-destaque);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.preco--grande { font-size: var(--txt-preco); line-height: 1.1; }
+.preco--medio  { font-size: var(--txt-xl); }
+.preco--riscado {
+  color: var(--tinta-2);
+  text-decoration: line-through;
+}
+
+/* ---------- Cartão e lista ---------- */
+.cartao {
+  background: var(--superficie-1);
+  border: 1px solid var(--borda);
+  border-radius: var(--raio);
+  padding: var(--interno);
+}
+
+.lista {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--entre);
+}
+
+/* ---------- Botões: uma única ação em destaque por tela ---------- */
+.botao {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 0 16px;
+  border-radius: var(--raio);
+  border: 1px solid var(--borda);
+  background: var(--superficie-1);
+  font-weight: 600;
+  text-decoration: none;
+  color: var(--tinta-1);
+  cursor: pointer;
+}
+
+.botao--destaque {
+  background: var(--cor-destaque);
+  border-color: var(--cor-destaque);
+  color: #fff;
+}
+.botao--destaque:hover { background: var(--cor-destaque-escura); }
+
+.botao--primario {
+  background: var(--cor-primaria);
+  border-color: var(--cor-primaria);
+  color: #fff;
+}
+
+.botao--texto {
+  border-color: transparent;
+  background: transparent;
+  color: var(--cor-primaria);
+}
+
+.botao--largo { width: 100%; min-height: 48px; }
+
+.botao:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* ---------- Campos de formulário ---------- */
+.campo {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.campo__rotulo {
+  font-size: var(--txt-md);
+  font-weight: 700;
+}
+
+.campo__entrada {
+  min-height: 48px;
+  padding: 0 var(--interno);
+  border: 1px solid var(--borda);
+  border-radius: var(--raio);
+  background: var(--superficie-1);
+}
+
+.campo__entrada::placeholder { color: var(--tinta-2); }
+
+.aviso {
+  background: var(--superficie-2);
+  border: 1px solid var(--borda);
+  border-radius: var(--raio);
+  padding: var(--interno);
+  font-size: var(--txt-sm);
+  color: var(--tinta-2);
 }

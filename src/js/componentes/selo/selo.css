@@ -1,0 +1,25 @@
+.selo {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: var(--txt-xs);
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.selo--votacao,
+.selo--pendente  { color: var(--selo-votacao-tinta);   background: var(--selo-votacao-fundo); }
+.selo--aprovada  { color: var(--selo-aprovada-tinta);  background: var(--selo-aprovada-fundo); }
+.selo--rejeitada { color: var(--selo-rejeitada-tinta); background: var(--selo-rejeitada-fundo); }
+.selo--expirada  { color: var(--selo-expirada-tinta);  background: var(--selo-expirada-fundo); }
+
+/* âmbar = "em andamento": a conta pendente usa o mesmo par da votação */
+.selo--pendente::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+}

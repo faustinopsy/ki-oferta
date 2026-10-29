@@ -1,0 +1,31 @@
+.favorito {
+  gap: var(--margem);
+}
+
+.favorito__item {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--interno);
+  color: inherit;
+  text-decoration: none;
+}
+
+.favorito__nome {
+  font-size: var(--txt-md);
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.favorito__valores {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  text-align: right;
+}
+
+.favorito__item--expirado {
+  background: var(--superficie-2);
+}
+.favorito__item--expirado .favorito__nome {
+  color: var(--tinta-2);
+}

@@ -1,0 +1,63 @@
+.moderacao {
+  gap: var(--interno);
+}
+
+.moderacao__tabela {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--superficie-1);
+  border: 1px solid var(--borda);
+  border-radius: var(--raio);
+  overflow: hidden;
+}
+
+.moderacao__tabela th {
+  padding: var(--interno) var(--entre);
+  background: var(--superficie-2);
+  color: var(--tinta-2);
+  font-size: var(--txt-xs);
+  text-align: left;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.moderacao__tabela td {
+  padding: var(--interno) var(--entre);
+  border-top: 1px solid var(--borda);
+  vertical-align: middle;
+}
+
+.moderacao__tabela td strong,
+.moderacao__tabela td .apoio {
+  display: block;
+}
+
+.moderacao__tempo {
+  white-space: nowrap;
+  color: var(--tinta-2);
+}
+
+/* as ações ficam na mesma posição em todas as linhas */
+.moderacao__acoes {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--entre);
+}
+
+.moderacao__acoes .botao {
+  min-height: 40px;
+  padding: 0 10px;
+  font-size: var(--txt-sm);
+}
+
+.moderacao__tabela td:first-child {
+  width: 100%;          /* a pessoa fica com o espaço que sobra */
+}
+
+/* no computador a tela ganha largura */
+@media (min-width: 720px) {
+  .moderacao__tabela td,
+  .moderacao__tabela th {
+    padding: var(--margem);
+  }
+}

@@ -1,0 +1,19 @@
+.reputacao {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 0 6px;
+  border-radius: 999px;
+  background: var(--cor-primaria-fundo);
+  color: var(--cor-primaria);
+  font-size: var(--txt-xs);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.reputacao__ponto {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+}

@@ -1,0 +1,100 @@
+.mapa {
+  display: flex;
+  flex-direction: column;
+  gap: var(--interno);
+  padding: var(--margem);
+}
+
+.mapa__filtro {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  font-size: var(--txt-sm);
+}
+
+/* quadro com ruas desenhadas em CSS: só para situar os marcadores */
+.mapa__quadro {
+  position: relative;
+  height: 420px;
+  border: 1px solid var(--borda);
+  border-radius: var(--raio);
+  overflow: hidden;
+  background:
+    linear-gradient(90deg, transparent 49.5%, var(--superficie-1) 49.5% 50.5%, transparent 50.5%) 0 0 / 120px 120px,
+    linear-gradient(0deg, transparent 49.5%, var(--superficie-1) 49.5% 50.5%, transparent 50.5%) 0 0 / 120px 120px,
+    linear-gradient(90deg, transparent 98%, var(--borda) 98%) 0 0 / 40px 40px,
+    linear-gradient(0deg, transparent 98%, var(--borda) 98%) 0 0 / 40px 40px,
+    var(--superficie-2);
+}
+
+.mapa__selo {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  padding: 2px 8px;
+  border: 1px solid var(--borda);
+  border-radius: 6px;
+  background: var(--superficie-1);
+  font-size: var(--txt-xs);
+  color: var(--tinta-2);
+}
+
+.mapa__voce {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  transform: translate(-50%, -50%);
+  border: 3px solid var(--superficie-1);
+  border-radius: 50%;
+  background: var(--cor-primaria);
+  box-shadow: 0 0 0 6px oklch(0.422 0.14 262 / 0.15);
+}
+
+/* o marcador é o preço: dá para comparar sem tocar em nenhum */
+.mapa__marcador {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  padding: 4px 10px;
+  border: 1px solid var(--borda);
+  border-radius: 999px;
+  background: var(--superficie-1);
+  color: var(--tinta-1);
+  font-size: var(--txt-sm);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  box-shadow: 0 1px 3px oklch(0 0 0 / 0.15);
+  cursor: pointer;
+}
+
+/* o menor preço da área é o único marcador na cor de destaque */
+.mapa__marcador--destaque {
+  border-color: var(--cor-destaque);
+  background: var(--cor-destaque);
+  color: #fff;
+}
+
+.mapa__marcador--ativo {
+  outline: 3px solid var(--cor-primaria);
+  outline-offset: 2px;
+  z-index: 2;
+}
+
+.mapa__cartao {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--interno);
+  color: inherit;
+  text-decoration: none;
+}
+
+.mapa__nome {
+  font-size: var(--txt-lg);
+  font-weight: 700;
+}
+
+.mapa__valor {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}

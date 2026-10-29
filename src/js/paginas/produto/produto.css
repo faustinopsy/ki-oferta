@@ -1,0 +1,81 @@
+.produto {
+  display: flex;
+  flex-direction: column;
+  gap: var(--interno);
+  padding-bottom: var(--margem);
+}
+
+.produto__identificacao {
+  display: flex;
+  gap: var(--interno);
+  padding: var(--margem);
+  background: var(--superficie-1);
+  border-bottom: 1px solid var(--borda);
+}
+
+.produto__nome {
+  font-size: var(--txt-lg);
+  font-weight: 700;
+}
+
+.produto > .estado,
+.produto > .vazio,
+.produto__semana,
+.produto__ofertas {
+  margin: 0 var(--margem);
+}
+
+/* bloco de decisão: preço, economia e distância lidos em uma fixação */
+.produto__decisao {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: var(--margem);
+  margin: 0 var(--margem);
+  padding: var(--margem);
+  background: var(--superficie-1);
+  border: 1px solid var(--borda);
+  border-radius: var(--raio);
+}
+
+.produto__menor {
+  display: flex;
+  flex-direction: column;
+}
+
+.produto__rotulo {
+  font-size: var(--txt-xs);
+  color: var(--tinta-2);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.produto__fatos {
+  display: flex;
+  flex-direction: column;
+  gap: var(--entre);
+  padding-left: var(--margem);
+  border-left: 1px solid var(--borda);
+}
+
+.produto__fatos div {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  column-gap: 6px;
+}
+
+.produto__fatos dt {
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.produto__fatos dd {
+  font-size: var(--txt-sm);
+  color: var(--tinta-2);
+}
+
+.produto__ofertas {
+  margin-top: var(--interno);
+}

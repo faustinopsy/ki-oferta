@@ -1,0 +1,76 @@
+.linha-oferta {
+  display: flex;
+  flex-direction: column;
+  gap: var(--interno);
+}
+
+/* o cartão de menor preço é o único com contorno na cor de destaque */
+.linha-oferta--menor {
+  border: 2px solid var(--cor-destaque);
+}
+
+.linha-oferta__topo {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--interno);
+}
+
+.linha-oferta__etiqueta {
+  display: inline-block;
+  margin-bottom: 4px;
+  padding: 1px 8px;
+  border-radius: 999px;
+  background: var(--cor-destaque-fundo);
+  color: var(--cor-destaque);
+  font-size: var(--txt-xs);
+  font-weight: 700;
+}
+
+.linha-oferta__mercado {
+  display: block;
+  color: var(--tinta-1);
+  font-size: var(--txt-lg);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.linha-oferta__valores {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.linha-oferta__economia {
+  font-size: var(--txt-sm);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+/* a barra repete, para quem escaneia, a economia que o texto já diz */
+.linha-oferta__barra {
+  height: 4px;
+  border-radius: 2px;
+  background: var(--borda);
+  overflow: hidden;
+}
+.linha-oferta__barra span {
+  display: block;
+  height: 100%;
+  background: var(--cor-destaque);
+}
+
+.linha-oferta__confianca {
+  display: flex;
+  align-items: center;
+  gap: var(--entre);
+}
+
+.linha-oferta__autor {
+  flex: 1;
+}
+
+.linha-oferta__acoes {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: var(--entre);
+}

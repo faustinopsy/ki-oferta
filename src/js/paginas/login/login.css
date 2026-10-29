@@ -1,0 +1,33 @@
+.login {
+  gap: var(--margem);
+}
+
+/* abas: Criar conta vem selecionada */
+.login__abas {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 4px;
+  border-radius: var(--raio);
+  background: var(--borda);
+}
+
+.login__aba {
+  display: grid;
+  place-items: center;
+  min-height: 44px;
+  border-radius: 8px;
+  color: var(--tinta-2);
+  text-decoration: none;
+}
+
+.login__aba--ativa {
+  background: var(--superficie-1);
+  color: var(--tinta-1);
+  font-weight: 700;
+}
+
+.login__form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--margem);
+}

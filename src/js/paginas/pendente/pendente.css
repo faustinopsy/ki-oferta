@@ -1,0 +1,83 @@
+.pendente {
+  min-height: calc(100dvh - var(--altura-menu));
+  background: var(--superficie-1);
+}
+
+.pendente__topo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--interno);
+}
+
+.pendente__titulo {
+  font-size: var(--txt-2xl);
+  line-height: 1.2;
+}
+
+.pendente__texto {
+  color: var(--tinta-2);
+  font-size: var(--txt-lg);
+}
+
+/* três passos: onde a pessoa está, o que falta e em quanto tempo */
+.pendente__passos {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--margem);
+}
+
+.pendente__passo {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--interno);
+  color: var(--tinta-2);
+}
+
+.pendente__marca {
+  display: grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: var(--superficie-2);
+  font-size: var(--txt-xs);
+  font-weight: 700;
+}
+
+.pendente__marca svg {
+  width: 14px;
+  height: 14px;
+}
+
+.pendente__passo--feito,
+.pendente__passo--agora {
+  color: var(--tinta-1);
+}
+
+.pendente__passo--feito .pendente__marca {
+  background: var(--selo-aprovada-fundo);
+  color: var(--selo-aprovada-tinta);
+}
+
+.pendente__passo--agora .pendente__marca {
+  background: var(--selo-votacao-fundo);
+}
+.pendente__passo--agora .pendente__marca::after {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--selo-votacao-tinta);
+}
+
+.pendente__rodape {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--interno);
+  padding-top: var(--margem);
+  border-top: 1px solid var(--borda);
+}

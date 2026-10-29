@@ -1,0 +1,49 @@
+.mercado {
+  display: flex;
+  flex-direction: column;
+}
+
+.mercado__dados {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: var(--margem);
+  background: var(--superficie-1);
+  border-bottom: 1px solid var(--borda);
+}
+
+.mercado__numeros {
+  display: flex;
+  align-items: baseline;
+  gap: var(--interno);
+  margin-top: 4px;
+  font-size: var(--txt-lg);
+}
+
+.mercado__lista {
+  padding: var(--margem);
+}
+
+.mercado__ofertas {
+  list-style: none;
+  padding: 0;
+}
+
+.mercado__ofertas li + li {
+  border-top: 1px solid var(--borda);
+}
+
+.mercado__oferta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--interno);
+  padding: var(--interno);
+  color: inherit;
+  text-decoration: none;
+}
+
+.mercado__produto {
+  font-size: var(--txt-md);
+  font-weight: 700;
+}

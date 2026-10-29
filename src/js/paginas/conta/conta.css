@@ -1,0 +1,88 @@
+.conta__topo {
+  display: flex;
+  flex-direction: column;
+  gap: var(--interno);
+  padding: var(--margem);
+  background: var(--superficie-1);
+  border-bottom: 1px solid var(--borda);
+}
+
+.conta__pessoa {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.conta__reputacao {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.conta__reputacao strong {
+  font-size: var(--txt-2xl);
+  color: var(--cor-primaria);
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+}
+
+.conta__meta {
+  display: flex;
+  flex-direction: column;
+  gap: var(--entre);
+  padding: var(--interno);
+  border: 1px solid var(--borda);
+  border-radius: var(--raio);
+  background: var(--superficie-2);
+}
+
+.conta__meta-topo {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* a reputação é azul: nunca a cor de destaque */
+.conta__barra {
+  height: 6px;
+  border-radius: 3px;
+  background: var(--borda);
+  overflow: hidden;
+}
+.conta__barra span {
+  display: block;
+  height: 100%;
+  background: var(--cor-primaria);
+}
+
+.conta__item {
+  display: flex;
+  flex-direction: column;
+  gap: var(--entre);
+}
+
+.conta__item-topo {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--interno);
+}
+
+.conta__produto {
+  color: var(--tinta-1);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.conta__motivo {
+  display: flex;
+  align-items: center;
+  gap: var(--entre);
+}
+
+.conta__item--encerrado {
+  background: var(--superficie-2);
+}
+
+.conta__item--nova {
+  border-color: var(--cor-primaria);
+  box-shadow: 0 0 0 1px var(--cor-primaria);
+}

@@ -1,0 +1,129 @@
+.enviar {
+  display: flex;
+  flex-direction: column;
+  gap: var(--interno);
+  padding: var(--margem);
+}
+
+.enviar__atalhos {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--entre);
+}
+
+.enviar__atalho {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-height: 88px;
+  border: 1px dashed var(--borda);
+  border-radius: var(--raio);
+  background: var(--superficie-1);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.enviar__atalho:focus-within {
+  outline: 3px solid var(--cor-primaria);
+  outline-offset: 2px;
+}
+
+.enviar__atalho--feito {
+  border-style: solid;
+  border-color: var(--selo-aprovada-tinta);
+  color: var(--selo-aprovada-tinta);
+}
+
+.enviar__bloco {
+  min-width: 0;         /* fieldset não estica com o campo de preço grande */
+  display: flex;
+  flex-direction: column;
+  gap: var(--entre);
+}
+
+.enviar__bloco legend {
+  float: left;          /* a legenda fica dentro do cartão */
+  width: 100%;
+  margin-bottom: var(--entre);
+}
+
+.enviar__codigo {
+  display: flex;
+  gap: var(--entre);
+}
+
+.enviar__codigo .campo__entrada {
+  flex: 1;
+  min-width: 0;
+}
+
+.enviar__produto {
+  display: flex;
+  align-items: center;
+  gap: var(--interno);
+  padding: var(--interno);
+  border-radius: var(--raio);
+  background: var(--superficie-2);
+}
+
+.enviar__produto > div {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.enviar__rotulo {
+  font-size: var(--txt-xs);
+  color: var(--tinta-2);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.enviar__nome {
+  font-weight: 700;
+}
+
+/* 60px e o corpo do preço: vê-lo grande reduz o erro de vírgula */
+.enviar__preco {
+  display: flex;
+  align-items: center;
+  gap: var(--entre);
+  font-size: var(--txt-xl);
+  font-weight: 700;
+  color: var(--tinta-2);
+}
+
+.enviar__preco input {
+  flex: 1;
+  min-width: 0;
+  height: 60px;
+  padding: 0 var(--interno);
+  border: 1px solid var(--borda);
+  border-radius: var(--raio);
+  font-size: var(--txt-preco);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  color: var(--tinta-1);
+}
+
+.enviar__marcar {
+  display: flex;
+  align-items: center;
+  gap: var(--entre);
+  min-height: 44px;
+}
+
+.enviar__marcar input {
+  width: 20px;
+  height: 20px;
+}
+
+.enviar__fim {
+  display: flex;
+  flex-direction: column;
+  gap: var(--entre);
+  text-align: center;
+}
